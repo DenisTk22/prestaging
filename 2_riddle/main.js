@@ -6,24 +6,29 @@ var riddle = {
     checkAnswer(answer) {
         // TODO: написать логику проверки правильного ответа
         // alert для пользователя, console.log()
-        if (answer === this.correctAnswer) {
+        if (this.tries <= 0) {
+            console.log('Игра окончена! Перезагрузите страницу');
+            return alert('Игра закончена! Перезагрузите страницу');
+        }
+
+        if (answer.toLowerCase() === this.correctAnswer) {
             alert('Правильный ответ');
             console.log('Правильный ответ');
-        } else {
+            this.tries = 0;
+        } else if (this.tries - 1 > 0) {
             this.tries--;
-            if (this.tries === 0){
-                alert('Игра окончена');
-                console.log('Игра окончена');
-            } else {
-                alert('Неправильный ответ');
-                console.log('Неправильный ответ');
-                if (this.tries === 1) { alert(`Подсказка: ${this.hints[Math.floor(Math.random() * this.hints.length)]}`)}
-            }
+            alert(`Неправильный ответ. \nПодсказка: ${this.hints[this.hints.length - this.tries]}`);
+            console.log(`Неправильный ответ. \nПодсказка: ${this.hints[this.hints.length - this.tries]}`);
+        }
+        else {
+            this.tries--;
+            console.log('Неправильный ответ, попытки закончились!');
+            alert('Неправильный ответ, попытки закончились!');
         }
     },
 }
 
-window.onload = function() {
+window.onload = function () {
     document.getElementById('riddle').innerText = riddle.question;
 }
 
