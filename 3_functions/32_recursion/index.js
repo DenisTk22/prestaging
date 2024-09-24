@@ -7,10 +7,10 @@ function getLength(array) {
 		getLength(array);
 		return arrLength;
 	} else {
-		return;
+		return arrLength;
 	}
 }
 
-const array = [4, 45, 89, 5, 8, 33, 99]
+const array = [4, 45, 89, 5, 8, 33, -99, 145]
 
 console.log('Длина массива:', getLength(array))

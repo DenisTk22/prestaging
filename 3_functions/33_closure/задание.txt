@@ -1,0 +1,7 @@
+function addByX(a) {
+    
+     function newOne(b) {
+        return a + b
+    }
+    return newOne;
+}
