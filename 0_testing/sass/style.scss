@@ -1,0 +1,36 @@
+@import './mixin';
+@import './style.sass';
+@import './extend';
+@import './vars';
+@import './functions';
+
+.parent {
+
+    @extend .testBackGround; // вызов наследования
+
+    &__child {
+        
+        &_red {
+            color: red;
+            font: { // вложеность свойств в пространстве имен font
+                family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                size: 14px;
+                weight: bold;
+            }
+        }
+    }
+
+    .childRule { //вложенность правил
+        
+        .rule {//вложенность правил
+            $newColor: lighten(#3498db, 10%);
+            $MainFont:  "Montserrat", sans-serif; // переменная
+            padding: 5px 10px;
+            margin: 5px;
+            @include textStyle ($newColor, Arial, 1px, 16px, 400, 24px); // объявление mixin
+        }
+
+        // font-family: $MainFont; // переменная не видна
+    }
+}
+
