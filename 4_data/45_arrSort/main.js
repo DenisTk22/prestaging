@@ -36,3 +36,18 @@ const players = [
         club: 'Spartak',
     },
 ];
+
+function abcSorting(array) {
+    return array.sort((a, b) => {
+        if (a.toLowerCase() < b.toLowerCase()) {
+            return -1;
+        }
+        if (a.toLowerCase() > b.toLowerCase()) {
+            return 1;
+        }
+        return 0;
+    });
+}
+
+console.log(abcSorting(food));
+console.log(abcSorting(players)); // не работает
