@@ -37,17 +37,18 @@ const players = [
     },
 ];
 
-function abcSorting(array) {
-    return array.sort((a, b) => {
-        if (a.toLowerCase() < b.toLowerCase()) {
-            return -1;
-        }
-        if (a.toLowerCase() > b.toLowerCase()) {
-            return 1;
-        }
-        return 0;
-    });
+function sorting(a, b) {
+    if (a.toLowerCase() > b.toLowerCase()) {
+        return 1;
+    }
+    if (a.toLowerCase() < b.toLowerCase()) {
+        return -1;
+    }
+    return 0;
 }
 
-console.log(abcSorting(food));
-console.log(abcSorting(players)); // не работает
+food.sort((a, b) => sorting(a, b)); // происходит мутирование основного массива
+players.sort((a, b) => sorting(a.surname, b.surname)); // происходит мутирование основной коллекции
+
+console.log(food);
+console.log(players);

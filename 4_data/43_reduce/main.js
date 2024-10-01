@@ -29,8 +29,8 @@ const order = [
     },
 ];
 
-const totalPrice = order.reduce((acc, value) => {
-    return acc = acc + (value.price * value.quantity);
+const totalPrice = order.reduce((acc, item) => {
+    return acc + (item.price * item.quantity);
 }, 0)
 
 console.log('Общая сумма: ', totalPrice)

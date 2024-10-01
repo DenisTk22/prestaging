@@ -28,9 +28,8 @@ const players = [
     },
 ];
 
-const messi = players.filter((player) => {
-    return player.surname.includes('Messi');
-
-})
+const messi = players.find((player) => {
+    return player.surname === 'Messi';
+});
 
 console.log(messi)
