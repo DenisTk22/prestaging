@@ -16,6 +16,22 @@ const link = {
     },
 }
 
-const { target: blankV, className: _linkV, children: {span: {className: anchorV}}, children: {span: {content: clickMeV} }} = link;
+const { 
+    target,
+    className,
+    children: {
+        span: {
+            className: renamed_className
+        }
+    }, 
+    children: {
+        span: {
+            content
+        } 
+    }
+} = link;
 
-console.log(anchorV);
+console.log(target);
+console.log(className);
+console.log(renamed_className);
+console.log(content);
