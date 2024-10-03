@@ -29,6 +29,6 @@ const players = [
     },
 ];
 
-const json = players.join
+const jsonPlayers = JSON.stringify(players);
 
-console.log(json);
+console.log(jsonPlayers);
