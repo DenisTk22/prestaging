@@ -1,0 +1,9 @@
+> npm init -y - для создания файла package.json
+> npm i -D parcel-bundler
+> добавить в package.json
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html --out-dir=build"
+  },
+
+> npm start - запуск проекта
