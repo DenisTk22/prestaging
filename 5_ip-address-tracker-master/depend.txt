@@ -7,3 +7,4 @@
   },
 
 > npm start - запуск проекта
+> npm i leaflet - установка leaflet
