@@ -8,3 +8,6 @@
 
 > npm start - запуск проекта
 > npm i leaflet - установка leaflet
+> npm i babel-polyfill - для поддержки async/ await
+> npm i -D vercel - для публикации приложения, после установки в файл package.json прописываем строки в "script": "predeploy": "npm run build", "deploy": "vercel --prod"
+> npm run deploy - запуск deploy для сборки приложения
