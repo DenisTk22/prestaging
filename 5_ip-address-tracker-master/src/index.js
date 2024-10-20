@@ -1,5 +1,5 @@
 import 'babel-polyfill';
-import '../node_modules/leaflet/dist/leaflet.css'; //../node_modules/leaflet/dist/leaflet.css
+import './leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { addOffset, addTileLayer, getAdress, validateIp } from './helpers';
 import icon from '../images/icon-location.svg';
@@ -26,16 +26,16 @@ const map = L.map(mapArea, {// загрузка карты в метод map() �
     center: [51.505, -0.09], // широта и долгота
     zoom: 13,
     zoomControl: false,
-}); 
+});
 
 addTileLayer(map); // вызов метода отрисовки карты
-L.marker([51.505, -0.09], {icon: markerIcon}).addTo(map); // добавление маркера к карте
+L.marker([51.505, -0.09], { icon: markerIcon }).addTo(map); // добавление маркера к карте
 
 function getData() {
     //проверка на корректность IP адреса
     if (validateIp(ipInput.value)) {
-            getAdress(ipInput.value)
-                .then(setInfo)
+        getAdress(ipInput.value)
+            .then(setInfo)
     }
 }
 
@@ -46,7 +46,7 @@ function handleKey(e) {
 }
 
 function setInfo(mapData) { // использует полученную информацию
-    const {lat, lng, country, region, timezone } = mapData.location; // деструкторизация
+    const { lat, lng, country, region, timezone } = mapData.location; // деструкторизация
     // ipInfo.innerText = mapData.ip;
     // locationInfo.innerText = mapData.location.country + ' ' + mapData.location.region;
     // timezoneInfo.innerText = mapData.location.timezone;
@@ -58,13 +58,13 @@ function setInfo(mapData) { // использует полученную инф�
     ispInfo.innerText = mapData.isp;
 
     map.setView([lat, lng]);
-    L.marker([lat, lng], {icon: markerIcon}).addTo(map);
+    L.marker([lat, lng], { icon: markerIcon }).addTo(map);
 
     //запускаем смещение маркира только на экране телефона, делаем проверку с помощью matchMedia()
     if (matchMedia("max-width: 1023px").matches) {
         addOffset(map);
     }
-    
+
 }
 
 // смещение маркера на видимую область после загрузки карты
