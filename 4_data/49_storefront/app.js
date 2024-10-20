@@ -20,33 +20,16 @@ let order = [];
 let itemsId = []
 
 function addToBasket(productId) {
-
-    // console.log(order)
-    // if (order.length === 0) {
-    //     products.forEach((item) => {
-    //         if (productId === item.id) {
-    //         order.push(item)
-    //         // console.log(order)
-    //             }
-    //         })
-    // } else {
-
-        // order.forEach((isItem) => {
-        //     console.log(order)
-            if (itemsId.includes(productId)) {
-                alert('Такой товар уже есть в корзине')
-            }  else {
-                products.forEach((item) => {
-                if (productId === item.id) {
-                    itemsId.push(item.id)
-                    order.push(item)
-                // console.log(order)
-                    }
-                })
+    if (itemsId.includes(productId)) {
+        alert('Такой товар уже есть в корзине')
+    } else {
+        products.forEach((item) => {
+            if (productId === item.id) {
+                itemsId.push(item.id)
+                order.push(item)
             }
-        // })
-    // }
-
+        })
+    }
 
 
     // TODO: добавить проверку наличия товара в заказе (при наличии выдать alert, что товар уже в корзине)
@@ -62,7 +45,7 @@ function removeFromBasket(productId) {
     // TODO: описать логику удаления товара из корзины
     order.forEach((item, i) => {
         if (item.id === productId) {
-            order.splice(i,1);
+            order.splice(i, 1);
             indexId = itemsId.indexOf(productId);
             itemsId.splice(indexId, 1);
         }
