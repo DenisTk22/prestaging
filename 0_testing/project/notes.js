@@ -12,7 +12,7 @@ const notifications = [
         isRead: true
     },
     {
-        id: 1,
+        id: 3,
         note: 'Вам поставили лайк',
         isRead: false
     }
@@ -37,10 +37,26 @@ let isRead = notifications.filter((item) => item.isRead === false).map((note) =>
 //     return obj;
 // });
 
-const read = notifications.map((nota) => {
-    if (nota.isRead === false) {
-        return {...nota, isRead: 'true'};
+const localNotes = [...notifications];
+
+// const read = () => { 
+//     const read = notifications.map((nota) => {
+//     if (nota.isRead === false) {
+//         return {...nota, isRead: 'true'};
+//     } return nota;
+// })
+//     return read;
+// }
+let read = [...notifications];
+
+const readEl = (id) => { 
+    read = notifications.map((nota) => {
+    if (nota.id === id) {
+        return {...nota, isRead: true};
     } return nota;
 })
+    return read;
+}
 
+console.log(readEl(3));
 console.log(read)
