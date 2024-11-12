@@ -5,10 +5,14 @@
     background: #b9b6b6;
 }
 
-.userForm__form {
-    width: 275px;
+.userForm__head {
     display: flex;
-    gap: 5px;
+    justify-content: space-between;
+}
+
+.userForm__form {
+    display: flex;
+    gap: 25px;
     flex-direction: column;
 }
 
@@ -27,9 +31,23 @@
     line-height: 32px;
 }
 
+.userForm__inputs {
+    width: 275px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
 .userFrom__error {
     color: red;
-    font-size: 10px;
+    font-size: 20px;
+    z-index: 10;
+}
+
+.userForm__buttonContainer {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .userForm__button {
