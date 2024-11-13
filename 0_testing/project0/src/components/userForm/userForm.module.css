@@ -35,14 +35,17 @@
     width: 275px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
     text-align: left;
 }
 
 .userFrom__error {
     color: red;
-    font-size: 20px;
-    z-index: 10;
+    font-size: 12px;
+    margin: 0;
+}
+
+.userFrom__errorBox {
+    height: 30px;
 }
 
 .userForm__buttonContainer {
