@@ -1,15 +1,19 @@
-import React from 'react';
-import { useFormik } from 'formik';
-import {SignupForm} from './components/userForm/userForm'
-import {userCreate} from './components/userCreate/userCreate'
-import './App.css'
+import { ReactElement } from 'react';
+import Dashboard from './components/dashboard/Dashboard';
 
-function App() {
+const user:{name:string, email:string} = {
+  name: 'Иван Иванов',
+  email: 'email@ya.ru'
+}
+
+//<Dashboard user={user.name} email={user.email}/> 
+
+function App():ReactElement {
 
   return (
     <>
-    {/* <userCreate/> */}
-      <SignupForm/>
+      <Dashboard/> 
+      {/* <SignupForm/> */}
     </>
   )
 }
