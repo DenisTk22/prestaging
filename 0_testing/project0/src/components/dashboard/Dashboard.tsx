@@ -11,9 +11,13 @@ import { ListItemIcon, ListItemText, Typography } from '@mui/material';
 import DraftsIcon from '@mui/icons-material/Drafts';
 import SendIcon from '@mui/icons-material/Send';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
-//user: string, email:string
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import {UserContext} from '../context/userContext'
 
 export default function Dashboard(): React.ReactElement {
+
+  const {name, email} = React.useContext(UserContext)
+
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef<HTMLButtonElement>(null);
 
@@ -62,7 +66,7 @@ export default function Dashboard(): React.ReactElement {
           aria-haspopup="true"
           onClick={handleToggle}
         >
-          Dashboard
+          <AccountCircleOutlinedIcon/>
         </Button>
         <Popper
           open={open}
@@ -83,17 +87,17 @@ export default function Dashboard(): React.ReactElement {
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <div>
-                  <MenuList>
+                  {/* <MenuList> */}
                     <MenuItem>
                       <ListItemIcon>
                         <SendIcon fontSize="small" />
                       </ListItemIcon>
                       <ListItemText>
-                        <ListItemText>Иван Иванов</ListItemText>
-                        <ListItemText>email@ya.ru</ListItemText>
+                        <Typography>{name}</Typography>
+                        <Typography>{email}</Typography>
                       </ListItemText>
                     </MenuItem>
-                  </MenuList>
+                  {/* </MenuList> */}
                   <MenuList
                     autoFocusItem={open}
                     id="composition-menu"
