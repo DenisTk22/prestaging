@@ -2,6 +2,7 @@
     box-sizing: border-box;
     width: 448px;
     padding: 30px;
+    border-radius: 10px;
     background: #b9b6b6;
 }
 
@@ -49,6 +50,7 @@
 }
 
 .userForm__buttonContainer {
+    width: 365px;
     display: flex;
     justify-content: flex-end;
 }
