@@ -5,4 +5,4 @@ const user = {
     email: ''
   }
 
-export const UserContext = createContext(user)
+export const userContext = createContext(user)

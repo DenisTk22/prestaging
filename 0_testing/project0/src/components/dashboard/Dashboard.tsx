@@ -12,11 +12,11 @@ import DraftsIcon from '@mui/icons-material/Drafts';
 import SendIcon from '@mui/icons-material/Send';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import {UserContext} from '../context/userContext'
+import {userContext} from '../context/userContext'
 
 export default function Dashboard(): React.ReactElement {
 
-  const {name, email} = React.useContext(UserContext)
+  const {name, email} = React.useContext(userContext)
 
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef<HTMLButtonElement>(null);
@@ -87,17 +87,15 @@ export default function Dashboard(): React.ReactElement {
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <div>
-                  {/* <MenuList> */}
                     <MenuItem>
                       <ListItemIcon>
                         <SendIcon fontSize="small" />
                       </ListItemIcon>
                       <ListItemText>
-                        <Typography>{name}</Typography>
-                        <Typography>{email}</Typography>
+                        <ListItemText>{name}</ListItemText>
+                        <ListItemText>{email}</ListItemText>
                       </ListItemText>
                     </MenuItem>
-                  {/* </MenuList> */}
                   <MenuList
                     autoFocusItem={open}
                     id="composition-menu"

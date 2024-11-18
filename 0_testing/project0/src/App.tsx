@@ -1,25 +1,25 @@
-import { createContext, ReactElement, useState } from 'react';
+import { ReactElement, useState } from 'react';
 import Dashboard from './components/dashboard/Dashboard';
-import {UserContext} from './components/context/userContext'
+import {userContext} from './components/context/userContext'
+import { SignupForm } from './components/userForm/userForm';
 //<Dashboard user={user.name} email={user.email}/> 
 
 
 
 export default function App():ReactElement {
-const user = {
+const userY = {
   name: 'Иван Петров',
   email: 'email@ya.ru'
 }
-const [name, setName] = useState({name: user.name});
-const [email, setEmail] = useState({email: user.email})
+const [user] = useState({name: userY.name, email: userY.email});
 
   return (
     <>
-    <UserContext.Provider value={user}>
+    <userContext.Provider value={user}>
       <Dashboard/> 
-    </UserContext.Provider>
+    </userContext.Provider>
     {/* <Dashboard/> */}
-      {/* <SignupForm/> */}
+      <SignupForm/>
     </>
   )
 }
