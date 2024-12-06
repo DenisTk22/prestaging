@@ -4,7 +4,6 @@ import * as Yup from 'yup';
 import styles from './userForm.module.css';
 import LaunchIcon from '@mui/icons-material/Launch';
 import Button from '@mui/material/Button';
-import { NavLink } from "react-router-dom";
 import { ReactElement } from 'react';
 
 export const SignupForm = (): ReactElement => {

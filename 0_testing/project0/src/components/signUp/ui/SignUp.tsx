@@ -1,8 +1,5 @@
-import type { RegisterRequest } from '@/entities/user';
 import type { FormikHelpers } from 'formik';
-
-import { userStore } from '@/entities/user';
-import { SignupSchema } from '@/features/auth';
+import { SignupSchema } from '../../../validation/signupSchema';
 import { Button, Checkbox, FormControlLabel, TextField } from '@mui/material';
 import { Form, Formik } from 'formik';
 import { useState, type ReactElement } from 'react';
@@ -10,6 +7,13 @@ import { useState, type ReactElement } from 'react';
 import style from './signUp.module.css';
 
 const SignUp = (): ReactElement => {
+  interface RegisterRequest {
+    display_name: string;
+    email: string;
+    password: string;
+  }
+
+
   const initialValues: RegisterRequest = { display_name: '', email: '', password: '' };
 
   const [isAgree, setIsAgree] = useState<boolean>(false);
@@ -23,8 +27,8 @@ const SignUp = (): ReactElement => {
     { setSubmitting }: FormikHelpers<RegisterRequest>,
   ): Promise<void> => {
     try {
-      const body: RegisterRequest = { ...values };
-      await userStore.createUser(body);
+      // const body: RegisterRequest = { ...values };
+      // createUser(body);
       alert('Пользователь успешно зарегистрирован!');
     } catch (error) {
       alert('Ошибка регистрации пользователя. Попробуйте снова.');
