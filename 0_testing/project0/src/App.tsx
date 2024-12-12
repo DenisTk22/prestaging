@@ -1,84 +1,26 @@
-import { ChangeEvent, ReactElement, useState } from 'react';
-// import Dashboard from './components/dashboard/Dashboard';
-// import { userContext } from './components/context/userContext'
-// import { SignUp } from './components/signUp';
+import { ReactElement } from 'react';
+import Product from './components/product/Product';
+import User from './components/user/User';
+import Employees from './components/employees/Employees';
 
 export default function App(): ReactElement {
-  // const userY = {
-  //   name: 'Иван Петров',
-  //   email: 'email@ya.ru'
-  // }
-  // const [user] = useState({name: userY.name, email: userY.email});
+  const salary1 = 100000;
+  const salary2 = 150000;
+  const salary3 = 200000;
 
-  const [value1, setValue1] = useState(0);
-  const [value2, setValue2] = useState(0);
-  const [result, setResult] = useState(0);
+  const employees = [
+    { id: 1, surname: 'Petrov', name: 'Petr', patronymic: 'Vadimuch', salary: salary1 },
+    { id: 2, surname: 'Ivanov', name: 'Ivan', patronymic: 'Ivanovich', salary: salary2 },
+    { id: 3, surname: 'Tkachev', name: 'Denis', patronymic: 'Vadimuch', salary: salary3 },
+  ]
 
-  function handleChange1(e: ChangeEvent<HTMLInputElement>): void {
-    setValue1(+e.target.value);
-  }
-  function handleChange2(e: ChangeEvent<HTMLInputElement>): void {
-    setValue2(+e.target.value);
-  }
-
-  const getResult = () => {
-    setResult(value1 + value2);
-  }
+  const staff = employees.map(employee => {
+    return <Employees key={employee.id} surname={employee.surname} name={employee.name} patronymic={employee.patronymic} salary={employee.salary} />
+  })
 
   return (
-    <>
-      <select value={result} name="" id="">
-        <option value="">text1</option>
-        <option value="">text2</option>
-        <option value="">text3</option>
-      </select>
-      <input value={value1} onChange={handleChange1} />
-      <input value={value2} onChange={handleChange2} />
-      <button onClick={getResult}>button</button>
-      <p>{result}</p>
-      {/* <userContext.Provider value={user}>
-      <Dashboard/> 
-    </userContext.Provider>
-    {/* <Dashboard/> */}
-      {/* <SignUp/> */}
-    </>
+    <div>
+      {staff}
+    </div>
   )
 }
-// import { ReactElement, useState } from 'react';
-// import { createTodos } from './components/todo/utils';
-// import TodoList from './components/todo/TodoList';
-
-// const todos: { id: number, text: string, completed: boolean }[] | '[]'= createTodos();
-
-// export default function App():ReactElement {
-//   const [tab, setTab] = useState('all');
-//   // const [isDark, setIsDark] = useState(false);
-//   return (
-//     <>
-//       <button onClick={() => setTab('all')}>
-//         All
-//       </button>
-//       <button onClick={() => setTab('active')}>
-//         Active
-//       </button>
-//       <button onClick={() => setTab('completed')}>
-//         Completed
-//       </button>
-//       <br />
-//       <label>
-//         <input
-//           type="checkbox"
-//           // checked={isDark}
-//           // onChange={e => setIsDark(e.target.checked)}
-//         />
-//         Dark mode
-//       </label>
-//       <hr />
-//       <TodoList
-//         todos = {todos}
-//         tab={tab}
-//         // theme={isDark ? 'dark' : 'light'}
-//       />
-//     </>
-//   );
-// }
