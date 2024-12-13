@@ -4,15 +4,21 @@ interface employeeData {
     surname: string,
     name: string,
     patronymic?: string,
-    salary: number
+    salary: number,
+    inCart: boolean,
+    addToCart: Function,
+    
 }
 
-const Employee = ({ surname, name, salary }: employeeData) => {
+const Employee = ({ id, surname, name, salary, inCart, addToCart }: employeeData) => {
 
     return <p>
-        name: <span>{name}</span>
-        surname: <span>{surname}</span>
-        salary: <span>{salary}</span>
+        id: <span>{id}</span>,
+        name: <span>{name}</span>,
+        surname: <span>{surname}</span>,
+        salary: <span>{salary}</span>,
+        <span>{inCart ? 'in cart' : 'not in cart'}</span>
+        <button onClick={() => addToCart(id)}>to cart</button>
     </p>
 }
 
