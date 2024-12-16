@@ -7,6 +7,5 @@ export default function App(): ReactElement {
     <div>
       <Employees />
     </div>
-    
   )
 }
