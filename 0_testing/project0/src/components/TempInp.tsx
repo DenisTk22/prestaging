@@ -1,12 +1,11 @@
 interface waterData {
-    temp: number
     setTemp: Function
 }
 
-const TempInp = ({temp, setTemp}:waterData) => {
+const TempInp = ({setTemp}:waterData) => {
 
     return (
-        <input  onChange={() => setTemp(temp)}  />
+        <input onChange={(e) => setTemp(e.target.value)}  />
     )
 }
 
